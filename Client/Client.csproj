@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E8C3FF8-7203-4A5C-9C7A-CF46A0C2A4D4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HTMLEditor, Version=1.5.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Zoople.HTMLEditor.1.5.1.2\lib\HTMLEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Uno, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.2.1.37\lib\netstandard2.0\Uno.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.Core.1.29.0\lib\net46\Uno.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Foundation, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.2.1.37\lib\netstandard2.0\Uno.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.2.1.37\lib\netstandard2.0\Uno.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI.Toolkit, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.2.1.37\lib\netstandard2.0\Uno.UI.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI.Wasm, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.2.1.37\lib\netstandard2.0\Uno.UI.Wasm.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Xaml, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.2.1.37\lib\netstandard2.0\Uno.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteForm.Designer.cs">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoteLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteLogin.Designer.cs">
+      <DependentUpon>NoteLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotesDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotesDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="NoteForm.resx">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteLogin.resx">
+      <DependentUpon>NoteLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Content\bootstrap-grid.css.map" />
+    <None Include="Content\bootstrap-grid.min.css.map" />
+    <None Include="Content\bootstrap-reboot.css.map" />
+    <None Include="Content\bootstrap-reboot.min.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css.map" />
+    <None Include="NotesDbDataSet.xsc">
+      <DependentUpon>NotesDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NotesDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NotesDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NotesDbDataSet.xss">
+      <DependentUpon>NotesDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\bootstrap.bundle.min.js.map" />
+    <None Include="Scripts\bootstrap.js.map" />
+    <None Include="Scripts\bootstrap.min.js.map" />
+    <None Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\esm\popper-utils.min.js.map" />
+    <None Include="Scripts\esm\popper.js.map" />
+    <None Include="Scripts\esm\popper.min.js.map" />
+    <None Include="Scripts\index.js.flow" />
+    <None Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <None Include="Scripts\popper-utils.js.map" />
+    <None Include="Scripts\popper-utils.min.js.map" />
+    <None Include="Scripts\popper.js.map" />
+    <None Include="Scripts\popper.min.js.map" />
+    <None Include="Scripts\README.md" />
+    <None Include="Scripts\umd\popper-utils.js.map" />
+    <None Include="Scripts\umd\popper-utils.min.js.map" />
+    <None Include="Scripts\umd\popper.js.flow" />
+    <None Include="Scripts\umd\popper.js.map" />
+    <None Include="Scripts\umd\popper.min.js.map" />
+    <None Include="semantic\less\collections\breadcrumb.less" />
+    <None Include="semantic\less\collections\form.less" />
+    <None Include="semantic\less\collections\grid.less" />
+    <None Include="semantic\less\collections\menu.less" />
+    <None Include="semantic\less\collections\message.less" />
+    <None Include="semantic\less\collections\table.less" />
+    <None Include="semantic\less\elements\button.less" />
+    <None Include="semantic\less\elements\divider.less" />
+    <None Include="semantic\less\elements\header.less" />
+    <None Include="semantic\less\elements\icon.less" />
+    <None Include="semantic\less\elements\image.less" />
+    <None Include="semantic\less\elements\input.less" />
+    <None Include="semantic\less\elements\label.less" />
+    <None Include="semantic\less\elements\loader.less" />
+    <None Include="semantic\less\elements\progress.less" />
+    <None Include="semantic\less\elements\segment.less" />
+    <None Include="semantic\less\elements\step.less" />
+    <None Include="semantic\less\fonts\icons.eot" />
+    <None Include="semantic\less\fonts\icons.ttf" />
+    <None Include="semantic\less\fonts\icons.woff" />
+    <None Include="semantic\less\modules\accordion.less" />
+    <None Include="semantic\less\modules\carousel.less" />
+    <None Include="semantic\less\modules\chatroom.less" />
+    <None Include="semantic\less\modules\checkbox.less" />
+    <None Include="semantic\less\modules\dimmer.less" />
+    <None Include="semantic\less\modules\dropdown.less" />
+    <None Include="semantic\less\modules\extra.transition.less" />
+    <None Include="semantic\less\modules\modal.less" />
+    <None Include="semantic\less\modules\nag.less" />
+    <None Include="semantic\less\modules\popup.less" />
+    <None Include="semantic\less\modules\rating.less" />
+    <None Include="semantic\less\modules\reveal.less" />
+    <None Include="semantic\less\modules\search.less" />
+    <None Include="semantic\less\modules\shape.less" />
+    <None Include="semantic\less\modules\sidebar.less" />
+    <None Include="semantic\less\modules\tab.less" />
+    <None Include="semantic\less\modules\transition.less" />
+    <None Include="semantic\less\modules\video.less" />
+    <None Include="semantic\less\views\comment.less" />
+    <None Include="semantic\less\views\feed.less" />
+    <None Include="semantic\less\views\item.less" />
+    <None Include="semantic\less\views\list.less" />
+    <None Include="semantic\less\views\sitemap.less" />
+    <None Include="semantic\less\views\statistic.less" />
+    <None Include="semantic\minified\fonts\icons.eot" />
+    <None Include="semantic\minified\fonts\icons.ttf" />
+    <None Include="semantic\minified\fonts\icons.woff" />
+    <None Include="semantic\packaged\fonts\icons.eot" />
+    <None Include="semantic\packaged\fonts\icons.ttf" />
+    <None Include="semantic\packaged\fonts\icons.woff" />
+    <None Include="semantic\uncompressed\fonts\icons.eot" />
+    <None Include="semantic\uncompressed\fonts\icons.ttf" />
+    <None Include="semantic\uncompressed\fonts\icons.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="semantic\less\fonts\icons.svg" />
+    <Content Include="semantic\less\images\loader-large-inverted.gif" />
+    <Content Include="semantic\less\images\loader-large.gif" />
+    <Content Include="semantic\less\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\less\images\loader-medium.gif" />
+    <Content Include="semantic\less\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\less\images\loader-mini.gif" />
+    <Content Include="semantic\less\images\loader-small-inverted.gif" />
+    <Content Include="semantic\less\images\loader-small.gif" />
+    <Content Include="semantic\less\modules\accordion.js" />
+    <Content Include="semantic\less\modules\behavior\api.js" />
+    <Content Include="semantic\less\modules\behavior\colorize.js" />
+    <Content Include="semantic\less\modules\behavior\form.js" />
+    <Content Include="semantic\less\modules\behavior\state.js" />
+    <Content Include="semantic\less\modules\carousel.js" />
+    <Content Include="semantic\less\modules\chatroom.js" />
+    <Content Include="semantic\less\modules\checkbox.js" />
+    <Content Include="semantic\less\modules\dimmer.js" />
+    <Content Include="semantic\less\modules\dropdown.js" />
+    <Content Include="semantic\less\modules\modal.js" />
+    <Content Include="semantic\less\modules\nag.js" />
+    <Content Include="semantic\less\modules\popup.js" />
+    <Content Include="semantic\less\modules\rating.js" />
+    <Content Include="semantic\less\modules\search.js" />
+    <Content Include="semantic\less\modules\shape.js" />
+    <Content Include="semantic\less\modules\sidebar.js" />
+    <Content Include="semantic\less\modules\tab.js" />
+    <Content Include="semantic\less\modules\transition.js" />
+    <Content Include="semantic\less\modules\video.js" />
+    <Content Include="semantic\minified\collections\breadcrumb.min.css" />
+    <Content Include="semantic\minified\collections\form.min.css" />
+    <Content Include="semantic\minified\collections\grid.min.css" />
+    <Content Include="semantic\minified\collections\menu.min.css" />
+    <Content Include="semantic\minified\collections\message.min.css" />
+    <Content Include="semantic\minified\collections\table.min.css" />
+    <Content Include="semantic\minified\elements\button.min.css" />
+    <Content Include="semantic\minified\elements\divider.min.css" />
+    <Content Include="semantic\minified\elements\header.min.css" />
+    <Content Include="semantic\minified\elements\icon.min.css" />
+    <Content Include="semantic\minified\elements\image.min.css" />
+    <Content Include="semantic\minified\elements\input.min.css" />
+    <Content Include="semantic\minified\elements\label.min.css" />
+    <Content Include="semantic\minified\elements\loader.min.css" />
+    <Content Include="semantic\minified\elements\progress.min.css" />
+    <Content Include="semantic\minified\elements\segment.min.css" />
+    <Content Include="semantic\minified\elements\step.min.css" />
+    <Content Include="semantic\minified\fonts\icons.svg" />
+    <Content Include="semantic\minified\images\loader-large-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-large.gif" />
+    <Content Include="semantic\minified\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-medium.gif" />
+    <Content Include="semantic\minified\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-mini.gif" />
+    <Content Include="semantic\minified\images\loader-small-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-small.gif" />
+    <Content Include="semantic\minified\modules\accordion.js" />
+    <Content Include="semantic\minified\modules\accordion.min.css" />
+    <Content Include="semantic\minified\modules\accordion.min.js" />
+    <Content Include="semantic\minified\modules\behavior\api.js" />
+    <Content Include="semantic\minified\modules\behavior\api.min.js" />
+    <Content Include="semantic\minified\modules\behavior\colorize.js" />
+    <Content Include="semantic\minified\modules\behavior\colorize.min.js" />
+    <Content Include="semantic\minified\modules\behavior\form.js" />
+    <Content Include="semantic\minified\modules\behavior\form.min.js" />
+    <Content Include="semantic\minified\modules\behavior\state.js" />
+    <Content Include="semantic\minified\modules\behavior\state.min.js" />
+    <Content Include="semantic\minified\modules\carousel.js" />
+    <Content Include="semantic\minified\modules\carousel.min.css" />
+    <Content Include="semantic\minified\modules\carousel.min.js" />
+    <Content Include="semantic\minified\modules\chatroom.js" />
+    <Content Include="semantic\minified\modules\chatroom.min.css" />
+    <Content Include="semantic\minified\modules\chatroom.min.js" />
+    <Content Include="semantic\minified\modules\checkbox.js" />
+    <Content Include="semantic\minified\modules\checkbox.min.css" />
+    <Content Include="semantic\minified\modules\checkbox.min.js" />
+    <Content Include="semantic\minified\modules\dimmer.js" />
+    <Content Include="semantic\minified\modules\dimmer.min.css" />
+    <Content Include="semantic\minified\modules\dimmer.min.js" />
+    <Content Include="semantic\minified\modules\dropdown.js" />
+    <Content Include="semantic\minified\modules\dropdown.min.css" />
+    <Content Include="semantic\minified\modules\dropdown.min.js" />
+    <Content Include="semantic\minified\modules\extra.min.css" />
+    <Content Include="semantic\minified\modules\modal.js" />
+    <Content Include="semantic\minified\modules\modal.min.css" />
+    <Content Include="semantic\minified\modules\modal.min.js" />
+    <Content Include="semantic\minified\modules\nag.js" />
+    <Content Include="semantic\minified\modules\nag.min.css" />
+    <Content Include="semantic\minified\modules\nag.min.js" />
+    <Content Include="semantic\minified\modules\popup.js" />
+    <Content Include="semantic\minified\modules\popup.min.css" />
+    <Content Include="semantic\minified\modules\popup.min.js" />
+    <Content Include="semantic\minified\modules\rating.js" />
+    <Content Include="semantic\minified\modules\rating.min.css" />
+    <Content Include="semantic\minified\modules\rating.min.js" />
+    <Content Include="semantic\minified\modules\reveal.min.css" />
+    <Content Include="semantic\minified\modules\search.js" />
+    <Content Include="semantic\minified\modules\search.min.css" />
+    <Content Include="semantic\minified\modules\search.min.js" />
+    <Content Include="semantic\minified\modules\shape.js" />
+    <Content Include="semantic\minified\modules\shape.min.css" />
+    <Content Include="semantic\minified\modules\shape.min.js" />
+    <Content Include="semantic\minified\modules\sidebar.js" />
+    <Content Include="semantic\minified\modules\sidebar.min.css" />
+    <Content Include="semantic\minified\modules\sidebar.min.js" />
+    <Content Include="semantic\minified\modules\tab.js" />
+    <Content Include="semantic\minified\modules\tab.min.css" />
+    <Content Include="semantic\minified\modules\tab.min.js" />
+    <Content Include="semantic\minified\modules\transition.js" />
+    <Content Include="semantic\minified\modules\transition.min.css" />
+    <Content Include="semantic\minified\modules\transition.min.js" />
+    <Content Include="semantic\minified\modules\video.js" />
+    <Content Include="semantic\minified\modules\video.min.css" />
+    <Content Include="semantic\minified\modules\video.min.js" />
+    <Content Include="semantic\minified\views\comment.min.css" />
+    <Content Include="semantic\minified\views\feed.min.css" />
+    <Content Include="semantic\minified\views\item.min.css" />
+    <Content Include="semantic\minified\views\list.min.css" />
+    <Content Include="semantic\minified\views\sitemap.min.css" />
+    <Content Include="semantic\minified\views\statistic.min.css" />
+    <Content Include="semantic\packaged\css\semantic.min.css" />
+    <Content Include="semantic\packaged\fonts\icons.svg" />
+    <Content Include="semantic\packaged\images\loader-large-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-large.gif" />
+    <Content Include="semantic\packaged\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-medium.gif" />
+    <Content Include="semantic\packaged\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-mini.gif" />
+    <Content Include="semantic\packaged\images\loader-small-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-small.gif" />
+    <Content Include="semantic\packaged\javascript\semantic.min.js" />
+    <Content Include="semantic\uncompressed\collections\breadcrumb.css" />
+    <Content Include="semantic\uncompressed\collections\form.css" />
+    <Content Include="semantic\uncompressed\collections\grid.css" />
+    <Content Include="semantic\uncompressed\collections\menu.css" />
+    <Content Include="semantic\uncompressed\collections\message.css" />
+    <Content Include="semantic\uncompressed\collections\table.css" />
+    <Content Include="semantic\uncompressed\elements\button.css" />
+    <Content Include="semantic\uncompressed\elements\divider.css" />
+    <Content Include="semantic\uncompressed\elements\header.css" />
+    <Content Include="semantic\uncompressed\elements\icon.css" />
+    <Content Include="semantic\uncompressed\elements\image.css" />
+    <Content Include="semantic\uncompressed\elements\input.css" />
+    <Content Include="semantic\uncompressed\elements\label.css" />
+    <Content Include="semantic\uncompressed\elements\loader.css" />
+    <Content Include="semantic\uncompressed\elements\progress.css" />
+    <Content Include="semantic\uncompressed\elements\segment.css" />
+    <Content Include="semantic\uncompressed\elements\step.css" />
+    <Content Include="semantic\uncompressed\fonts\icons.svg" />
+    <Content Include="semantic\uncompressed\images\loader-large-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-large.gif" />
+    <Content Include="semantic\uncompressed\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-medium.gif" />
+    <Content Include="semantic\uncompressed\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-mini.gif" />
+    <Content Include="semantic\uncompressed\images\loader-small-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-small.gif" />
+    <Content Include="semantic\uncompressed\modules\accordion.css" />
+    <Content Include="semantic\uncompressed\modules\accordion.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\api.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\colorize.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\form.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\state.js" />
+    <Content Include="semantic\uncompressed\modules\carousel.css" />
+    <Content Include="semantic\uncompressed\modules\carousel.js" />
+    <Content Include="semantic\uncompressed\modules\chatroom.css" />
+    <Content Include="semantic\uncompressed\modules\chatroom.js" />
+    <Content Include="semantic\uncompressed\modules\checkbox.css" />
+    <Content Include="semantic\uncompressed\modules\checkbox.js" />
+    <Content Include="semantic\uncompressed\modules\dimmer.css" />
+    <Content Include="semantic\uncompressed\modules\dimmer.js" />
+    <Content Include="semantic\uncompressed\modules\dropdown.css" />
+    <Content Include="semantic\uncompressed\modules\dropdown.js" />
+    <Content Include="semantic\uncompressed\modules\extra.css" />
+    <Content Include="semantic\uncompressed\modules\modal.css" />
+    <Content Include="semantic\uncompressed\modules\modal.js" />
+    <Content Include="semantic\uncompressed\modules\nag.css" />
+    <Content Include="semantic\uncompressed\modules\nag.js" />
+    <Content Include="semantic\uncompressed\modules\popup.css" />
+    <Content Include="semantic\uncompressed\modules\popup.js" />
+    <Content Include="semantic\uncompressed\modules\rating.css" />
+    <Content Include="semantic\uncompressed\modules\rating.js" />
+    <Content Include="semantic\uncompressed\modules\reveal.css" />
+    <Content Include="semantic\uncompressed\modules\search.css" />
+    <Content Include="semantic\uncompressed\modules\search.js" />
+    <Content Include="semantic\uncompressed\modules\shape.css" />
+    <Content Include="semantic\uncompressed\modules\shape.js" />
+    <Content Include="semantic\uncompressed\modules\sidebar.css" />
+    <Content Include="semantic\uncompressed\modules\sidebar.js" />
+    <Content Include="semantic\uncompressed\modules\tab.css" />
+    <Content Include="semantic\uncompressed\modules\tab.js" />
+    <Content Include="semantic\uncompressed\modules\transition.css" />
+    <Content Include="semantic\uncompressed\modules\transition.js" />
+    <Content Include="semantic\uncompressed\modules\video.css" />
+    <Content Include="semantic\uncompressed\modules\video.js" />
+    <Content Include="semantic\uncompressed\views\comment.css" />
+    <Content Include="semantic\uncompressed\views\feed.css" />
+    <Content Include="semantic\uncompressed\views\item.css" />
+    <Content Include="semantic\uncompressed\views\list.css" />
+    <Content Include="semantic\uncompressed\views\sitemap.css" />
+    <Content Include="semantic\uncompressed\views\statistic.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Uno.Core.Build.1.29.0\build\Uno.Core.Build.targets" Condition="Exists('packages\Uno.Core.Build.1.29.0\build\Uno.Core.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Uno.Core.Build.1.29.0\build\Uno.Core.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Uno.Core.Build.1.29.0\build\Uno.Core.Build.targets'))" />
+    <Error Condition="!Exists('packages\Uno.SourceGenerationTasks.1.32.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Uno.SourceGenerationTasks.1.32.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets'))" />
+    <Error Condition="!Exists('packages\Uno.UI.2.1.37\build\netstandard2.0\uno.ui.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Uno.UI.2.1.37\build\netstandard2.0\uno.ui.targets'))" />
+  </Target>
+  <Import Project="packages\Uno.SourceGenerationTasks.1.32.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets" Condition="Exists('packages\Uno.SourceGenerationTasks.1.32.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets')" />
+  <Import Project="packages\Uno.UI.2.1.37\build\netstandard2.0\uno.ui.targets" Condition="Exists('packages\Uno.UI.2.1.37\build\netstandard2.0\uno.ui.targets')" />
+</Project>
